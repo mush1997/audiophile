@@ -1,0 +1,204 @@
+//animation
+@keyframes showing {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes menuShadow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+@keyframes cartShadow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+//class setting
+.navLinks {
+    li {
+        margin-left: 34px;
+        display: inline-block;
+        list-style: none;
+
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 25px;
+        color: $white;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        &:hover {
+            cursor: pointer;
+            color: $primary;
+        }
+
+        a {
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 25px;
+            color: $white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    li:nth-child(1) {
+        margin-left: 0;
+    }
+}
+
+.specialTitle {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 19px;
+    color: $primary;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button {
+    margin-top: 40px;
+    width: 160px;
+    height: 48px;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.mainBtn {
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+        background-color: $hovering;
+    }
+}
+
+.blackBtn {
+    background-color: $black;
+    color: $white;
+
+    &:hover {
+        background-color: $dark_gray;
+    }
+}
+
+.hollowBtn {
+    margin-top: 32px;
+    border: 1px solid $black;
+    background-color: transparent;
+    color: $black;
+
+    &:hover {
+        background-color: $black;
+        color: $white;
+    }
+}
+
+//layout
+body {
+    background-color: $main_bg;
+
+    .shadow {
+        content: "";
+        width: 100%;
+        height: 100vh;
+        background-color: $gray;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        visibility: hidden;
+    }
+
+    main {
+        padding: 0 11%;
+        width: 100%;
+
+        .goBack {
+            margin: 80px 0 56px 0;
+            opacity: 0.5;
+
+            &:hover {
+                cursor: pointer;
+                color: $primary;
+                opacity: 1;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+body.menuShadow {
+    .shadow {
+        visibility: visible;
+        animation: menuShadow 0.6s forwards;
+    }
+}
+
+body.cartShadow {
+    .shadow {
+        visibility: visible;
+        animation: cartShadow 0.6s forwards;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    body {
+        main {
+            padding: 0 40px;
+
+            .goBack {
+                margin: 32px 0 24px 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    body {
+        main {
+            padding: 0 24px;
+
+            .goBack {
+                margin: 16px 0 24px 0;
+            }
+        }
+    }
+}

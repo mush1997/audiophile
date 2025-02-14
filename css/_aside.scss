@@ -1,0 +1,107 @@
+body {
+    aside {
+        margin: 160px 0;
+        padding: 0 11%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            flex-basis: 48%;
+            min-width: 0;
+            order: 1;
+            border-radius: 10px;
+            display: none;
+        }
+
+        img:nth-child(1) {
+            display: block;
+        }
+
+        div {
+            flex-basis: 48%;
+            padding-right: 2%;
+
+            p:nth-child(1) {
+                margin-bottom: 32px;
+                font-size: 40px;
+                font-weight: bold;
+                line-height: 44px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+
+                span {
+                    font-size: 40px;
+                    font-weight: bold;
+                    line-height: 44px;
+                    color: $primary;
+                    letter-spacing: 1.5px;
+                }
+            }
+
+            p:nth-child(2) {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    body {
+        aside {
+            margin: 120px 0;
+            padding: 0 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+
+            img {
+                flex-basis: 100%;
+                order: 0;
+            }
+
+            img:nth-child(1) {
+                display: none;
+            }
+
+            img:nth-child(2) {
+                display: block;
+            }
+
+            div {
+                flex-basis: 100%;
+                padding: 60px 60px 0 60px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:620px) {
+    body {
+        aside div {
+            padding: 60px 24px 0 24px;
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    body {
+        aside {
+            padding: 0 24px;
+
+            img:nth-child(2) {
+                display: none;
+            }
+
+            img:nth-child(3) {
+                display: block;
+            }
+
+            div {
+                padding: 40px 24px 0 24px;
+            }
+        }
+    }
+}

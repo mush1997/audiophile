@@ -1,0 +1,215 @@
+#cart {
+    padding: 32px;
+    width: 30%;
+    min-width: 480px;
+    max-width: 650px;
+    border-radius: 10px;
+    background-color: $white;
+    position: absolute;
+    top: 120px;
+    right: 11%;
+    z-index: 10;
+    animation: showing 0.8s forwards;
+
+    .cartTitle {
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p:nth-child(1),
+        p:nth-child(1) span {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 24px;
+            letter-spacing: 1.3px;
+        }
+
+        p:nth-child(1) {            
+            text-transform: uppercase;
+
+            span {                
+                color: $black;
+            }
+        }
+
+        p:nth-child(2) {            
+            opacity: 0.5;
+
+            &:hover {
+                cursor: pointer;
+                color: $primary;
+                text-decoration: underline;
+                opacity: 1;
+            }
+        }
+    }
+
+    .defaultText {
+        text-align: center;
+
+        p {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            opacity: 0.5;
+        }
+    }
+
+    .itemDetails {
+        .single {
+            margin-top: 24px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &>div {
+                flex-basis: 70%;
+                display: flex;
+                align-items: center;
+
+                img {
+                    margin-right: 16px;
+                    width: 30%;
+                    border-radius: 10px;
+                }
+
+                div {
+                    p:nth-child(1) {
+                        font-weight: bold;
+                    }
+
+                    p:nth-child(2) {
+                        font-size: 14px;
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+            .cartQuantity {
+                margin-left: 24px;
+                padding: 16px;
+                width: 100px;
+                height: 40px;
+                background-color: $block_bg;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                span {
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                .minus,
+                .plus {
+                    font-size: 18px;
+                    opacity: 0.25;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: $primary;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .single:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .totalSum {
+        margin-top: 32px;
+
+        p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span:first-child {
+                text-transform: uppercase;
+                opacity: 0.5;
+            }
+
+            .totalNum {
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+
+        button {
+            margin-top: 24px;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #cart {
+        width: 75%;
+        min-width: auto;
+        max-width: 480px;
+        right: 40px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    #cart {
+        margin: 0 24px;
+        padding: 24px;
+        width: calc(100% - 48px);
+        max-width: auto;
+        right: 0;
+
+        .defaultText {
+            text-align: left;
+        }
+
+        .itemDetails .single {
+            &>div img {
+                width: 50px;
+            }
+
+            .cartQuantity {
+                margin-left: 16px;
+                padding: 10px;
+                width: 72px;
+                height: 28px;
+
+                span {
+                    font-size: 12px;
+                }
+
+                .minus,
+                .plus {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .totalSum button {
+            height: 40px;
+        }
+    }
+}
+
+@media screen and (max-width:460px) {
+    #cart {
+        padding: 20px 16px;
+
+        .itemDetails .single {
+            &>div div {
+                p:nth-child(1) {
+                    font-size: 13px;
+                    line-height: 18px;
+                }
+
+                p:nth-child(2) {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

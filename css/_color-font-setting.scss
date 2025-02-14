@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+$primary: #D87D4A;
+$hovering: #FBAF85;
+$warning: #CD2C2C;
+$gray: #979797;
+$dark_gray: #4C4C4C;
+$black: black;
+$white: white;
+$main_bg: #FAFAFA;
+$block_bg: #F1F1F1;
+$footer_bg: #101010;
+$input_border: #CFCFCF;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "manrope";
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 25px;
+    color: $black;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+}

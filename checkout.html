@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/checkout.css">
+  <script src="./js/all.js" defer></script>
+  <script src="./js/cart.js" defer></script>
+  <script src="./js/checkout.js" defer></script>
+  <title>Frontend Mentor | Audiophile e-commerce website</title>
+</head>
+
+<body>
+  <div class="shadow"></div>
+  <header>
+    <nav>
+      <img class="menuBtn hide" src="./assets/shared/tablet/icon-hamburger.svg" alt="menu">
+      <a href="./index.html" class="logo"><img src="./assets/shared/desktop/logo.svg" alt="logo"></a>
+      <ul class="navLinks">
+        <li><a href="./index.html">Home</a></li>
+        <li>Headphones</li>
+        <li>Speakers</li>
+        <li>Earphones</li>
+      </ul>
+      <img class="cartBtn" src="./assets/shared/desktop/icon-cart.svg" alt="cart">
+    </nav>
+  </header>
+
+  <section class="menuComponent menu hide">
+    <div>
+      <img src="./assets/shared/desktop/image-category-thumbnail-headphones.png" alt="headphones">
+      <div>
+        <p>Headphones</p>
+        <p><span>Shop</span><img src="./assets/shared/desktop/icon-arrow-right.svg" alt=""></p>
+      </div>
+    </div>
+    <div>
+      <img src="./assets/shared/desktop/image-category-thumbnail-speakers.png" alt="speakers">
+      <div>
+        <p>Speakers</p>
+        <p><span>Shop</span><img src="./assets/shared/desktop/icon-arrow-right.svg" alt=""></p>
+      </div>
+    </div>
+    <div>
+      <img src="./assets/shared/desktop/image-category-thumbnail-earphones.png" alt="earphones">
+      <div>
+        <p>Earphones</p>
+        <p><span>Shop</span><img src="./assets/shared/desktop/icon-arrow-right.svg" alt=""></p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <p class="goBack">Go Back</p>
+    <form action="" method="post">
+      <section class="checkout">
+        <h1>Checkout <span><i>(Please fill in the following form in English/numbers only.)</i></span></h1>
+        <div class="fieldSet customerInfo">
+          <p class="fieldTitle">Billing details</p>
+          <div class="row">
+            <div>
+              <p>Name</p>
+              <input type="text" name="Name" placeholder="e.g. Alexei Ward">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+            <div>
+              <p>Email address</p>
+              <input type="text" name="Email" placeholder="e.g. alexei@mail.com">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <p>Phone number</p>
+              <input type="text" name="phoneNumber" placeholder="e.g. 12025550136">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fieldSet shippingInfo">
+          <p class="fieldTitle">Shipping info</p>
+          <div class="row">
+            <div>
+              <p>Address</p>
+              <input type="text" name="Address" placeholder="e.g. 1137 Williams Avenue">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <p>ZIP code</p>
+              <input type="text" name="ZIPcode" placeholder="e.g. 10001">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+            <div>
+              <p>City</p>
+              <input type="text" name="City" placeholder="e.g. New York">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <p>Country</p>
+              <input type="text" name="Country" placeholder="e.g. United States">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fieldSet paymentDetails">
+          <p class="fieldTitle">Payment details</p>
+          <div class="row">
+            <div>
+              <p>Payment method</p>
+            </div>
+            <div class="options">
+              <label class="selected">
+                <input type="radio" name="Payment" value="credit card" checked>
+                Credit card
+              </label>
+              <label>
+                <input type="radio" name="Payment" value="on delivery">
+                Cash on delivery
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="reminder hide">
+          <img src="./assets/checkout/icon-cash-on-delivery.svg" alt="cash-on-delivery">
+          <p>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives
+            at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+        </div>
+
+        <div class="fieldSet creditCard">
+          <div class="row">
+            <div>
+              <p>Credit card number</p>
+              <input type="text" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+            <div>
+              <p>CVC</p>
+              <input type="text" name="CVC" placeholder="e.g. 123" maxlength="3">
+              <p class="warning">Can't be blank</p>
+              <p class="wrong">Wrong format</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary">
+        <h2>Summary</h2>
+        <p class="summaryDefaultText">You have not added any products yet.</p>
+        <div class="checkoutList"></div>
+        <div class="finalSum">
+          <p><span>Total</span><span class="finalTotal"></span></p>
+          <p><span>Shipping</span><span class="shippingFee">$ 50</span></p>
+          <p><span>VAT(20%)</span><span class="vat"></span></p>
+          <p><span>Grand total</span><span class="grandTotal"></span></p>
+          <button class="mainBtn">Continue & pay</button>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <section class="thankModal">
+    <img src="./assets/checkout/icon-order-confirmation.svg" alt="">
+    <h2>Thank you for your order</h2>
+    <p>You will receive an email confirmation shortly.</p>
+    <div class="summaryBrick">
+      <div class="leftPart">
+        <div class="dropdown">
+          <p>and <span></span> other item(s)</p>
+          <p>View less</p>
+        </div>
+      </div>
+      <div class="rightPart">
+        <p>Grand Total</p>
+        <p class="grandTotalNum"></p>
+      </div>
+    </div>
+    <button class="mainBtn">Back to home</button>
+  </section>
+
+  <footer>
+    <nav>
+      <img class="logo" src="./assets/shared/desktop/logo.svg" alt="logo">
+      <ul class="navLinks">
+        <li><a href="./index.html">Home</a></li>
+        <li>Headphones</li>
+        <li>Speakers</li>
+        <li>Earphones</li>
+      </ul>
+    </nav>
+    <section>
+      <div class="text">
+        <p>
+          Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
+          and sound specialists who are devoted to helping you get the most out of personal audio. Come and
+          visit our demo facility - we’re open 7 days a week.
+        </p>
+        <p class="copyright">Copyright 2025. All Rights Reserved</p>
+      </div>
+      <div class="sns">
+        <img src="./assets/shared/desktop/icon-facebook.svg" alt="facebook">
+        <img src="./assets/shared/desktop/icon-twitter.svg" alt="twitter">
+        <img src="./assets/shared/desktop/icon-instagram.svg" alt="instagram">
+      </div>
+    </section>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io" target="_blank">Frontend Mentor</a>.
+      Coded by Tina.
+    </p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+@keyframes modalShadow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+body.modalShadow {
+    .shadow {
+        visibility: visible;
+        animation: modalShadow 0.6s forwards;
+    }
+}
+
+.quantityNum {
+    margin-left: 24px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.thankModal {
+    padding: 48px;
+    width: 40%;
+    min-width: 610px;
+    max-width: 720px;
+    border-radius: 10px;
+    background-color: $white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: none;
+
+    &>img {
+        margin-bottom: 32px;
+    }
+
+    h2 {
+        font-size: 32px;
+        line-height: 36px;
+        letter-spacing: 1.15px;
+    }
+
+    &>p {
+        margin: 24px 0 32px 0;
+        opacity: 0.5;
+    }
+
+    .summaryBrick {
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+
+        .leftPart {
+            flex-basis: 360px;
+            flex-grow: 1;
+            padding: 8px 20px;
+            max-height: 170px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            overscroll-behavior: none;
+            border-radius: 10px 0 0 10px;
+            background-color: $block_bg;
+
+            p {
+                font-weight: bold;
+                opacity: 0.5;
+            }
+
+            .line {
+                padding: 12px 0;
+                width: 100%;
+                min-width: 300px;
+                display: none;
+
+                &>div {
+                    width: 85%;
+                    display: inline-flex;
+                    align-items: center;
+
+                    img {
+                        margin-right: 16px;
+                        width: 50px;
+                    }
+
+                    div {
+                        p:nth-child(1) {
+                            margin-bottom: 4px;
+                            line-height: 20px;
+                            opacity: 1;
+                        }
+
+                        p:nth-child(2) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .quantityNum {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+            }
+
+            .line:first-of-type {
+                display: block;
+            }
+
+            .line.show {
+                display: block;
+                animation: showing 0.8s forwards;
+            }
+
+            .dropdown {
+                padding: 12px 0;
+                text-align: center;
+                border-top: 2px solid gainsboro;
+
+                p {
+                    font-size: 13px;
+                    display: inline-block;
+                    animation: dropdownOpen 0.8s forwards;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    span {
+                        font-size: 13px;
+                        font-weight: bold;
+                    }
+                }
+
+                p:last-child {
+                    display: none;
+                }
+            }
+        }
+
+        .leftPart.centered {
+            display: flex;
+            align-items: center;
+        }
+
+        .rightPart {
+            flex-basis: 150px;
+            padding: 24px;
+            background-color: $black;
+            border-radius: 0 10px 10px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            p:first-child {
+                margin-bottom: 8px;
+                color: $white;
+                text-transform: uppercase;
+                opacity: 0.5;
+            }
+
+            .grandTotalNum {
+                font-size: 18px;
+                font-weight: bold;
+                color: $white;
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+.thankModal.show {
+    display: block;
+    animation: showing 0.8s forwards;
+}
+
+@media screen and (max-width:1024px) {
+    .thankModal {
+        padding: 32px;
+        min-width: 580px;
+    }
+}
+
+@media screen and (max-width:680px) {
+    .thankModal {
+        width: calc(100% - 80px);
+        min-width: auto;
+        max-width: auto;
+
+        &>img {
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        &>p {
+            margin: 16px 0 24px 0;
+        }
+
+        .summaryBrick {
+            flex-wrap: wrap;
+
+            .leftPart {
+                flex-basis: 100%;
+                flex-grow: 0;
+                padding: 8px 16px;
+                border-radius: 10px 10px 0 0;
+
+                .line {
+                    min-width: auto;
+                }
+            }
+
+            .rightPart {
+                flex-basis: 100%;
+                border-radius: 0 0 10px 10px;
+                justify-content: flex-start;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .thankModal {
+        padding: 24px;
+
+        &>img {
+            margin-bottom: 16px;
+        }
+
+        &>p {
+            margin: 12px 0 16px 0;
+        }
+
+        .summaryBrick .leftPart .line {
+            &>div img {
+                margin-right: 8px;
+                width: 40px;
+            }
+
+            .quantityNum {
+                margin-left: 12px;
+            }
+        }
+
+        button {
+            margin-top: 24px;
+        }
+    }
+}
+
+@media screen and (max-width:400px) {
+    .thankModal {
+        padding: 20px;
+
+        .summaryBrick .leftPart {
+            max-height: 180px;
+
+            .line {
+                &>div {
+                    width: 100%;
+                }
+
+                .quantityNum {
+                    margin-left: 48px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
