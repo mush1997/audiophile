@@ -816,14 +816,14 @@ body main section div {
 }
 body main .item1 {
   grid-area: 1/1/2/3;
-  justify-items: end;
   background-color: #D87D4A;
   background-image: url("../assets/home/desktop/image-speaker-zx9.png"), url("../assets/home/desktop/pattern-circles.svg");
   background-position: left 20% bottom -10px, left -10% top 10%;
   background-size: auto 75%, 68% auto;
 }
 body main .item1 div {
-  width: 45%;
+  padding-left: 55%;
+  width: 100%;
 }
 body main .item1 div h2 {
   margin: 24px 0;
@@ -904,7 +904,6 @@ body aside {
   }
   body main .item1 div {
     padding: 60px;
-    width: 100%;
     height: auto;
     text-align: center;
     position: absolute;

@@ -788,6 +788,7 @@ body main .product {
   align-items: center;
 }
 body main .product img {
+  flex-shrink: 0;
   border-radius: 10px;
   width: 48%;
 }
