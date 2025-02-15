@@ -10,11 +10,10 @@ function showHideCart() {
     if (!document.getElementById("cart")) {
         createCart();
     } else {
+        updateCart();
         cart.classList.remove("hide");
         document.body.classList.add("cartShadow");
     }
-
-    updateCart();
 
     document.querySelector(".shadow").addEventListener("click", () => {
         cart.classList.add("hide");
@@ -50,6 +49,7 @@ function createCart() {
     itemDetails = cart.querySelector(".itemDetails");
     cartTotalSum = cart.querySelector(".totalSum");
     totalNum = cart.querySelector(".totalNum");
+    updateCart();
 }
 
 function updateCart() {

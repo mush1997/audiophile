@@ -171,6 +171,6 @@ function resetForm() {
     document.querySelector("form").reset();
     thankModal.classList.remove("show");
     window.localStorage.removeItem("cartList");
-    setTimeout(() => { window.location.href = "./index.html" }, 400);
-    setTimeout(() => { document.body.classList.remove("modalShadow"); }, 700);
+    window.location.href = "./index.html";
+    document.body.classList.remove("modalShadow");
 }
