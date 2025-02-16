@@ -129,7 +129,7 @@ function showThankModal(event) {
     for (let input of Array.from(allTextInputs)) {
         if ((input.value.length === 0 || input.parentElement.classList.contains("error")) &&
             !input.closest(".fieldSet").classList.contains("hide")) {
-            alert("Please make sure that you fill in all the blanks in the correct format.");
+            createPopupMsg("Please make sure that you fill in all the blanks in the correct format.");
             return;
         }
     }

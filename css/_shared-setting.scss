@@ -157,6 +157,19 @@ body {
         visibility: hidden;
     }
 
+    .popup {
+        padding: 20px;
+        min-width: 450px;
+        max-width: 550px;
+        border-radius: 10px;
+        background-color: $white;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        display: none;
+    }
+
     main {
         padding: 0 11%;
         width: 100%;
@@ -194,10 +207,20 @@ body.alertShadow {
         visibility: visible;
         animation: cartShadow 0.4s forwards;
     }
+
+    .popup {
+        display: block;
+    }
 }
 
 @media screen and (max-width:1024px) {
     body {
+        .popup {
+            width: 400px;
+            min-width: auto;
+            max-width: auto;
+        }
+
         main {
             padding: 0 40px;
 
@@ -210,6 +233,10 @@ body.alertShadow {
 
 @media screen and (max-width:500px) {
     body {
+        .popup {
+            width: calc(100% - 48px);
+        }
+
         main {
             padding: 0 24px;
 

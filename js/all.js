@@ -57,3 +57,24 @@ function goProductPage(event) {
     let productName = event.target.closest("[data-slug]").dataset.slug.replaceAll("-", "_");
     window.location.href = `./product.html?product=${productName}`;
 }
+
+function createPopupMsg(msg, position) {
+    const popup = document.createElement("div");
+    document.body.append(popup);
+    popup.id = "popup";
+    popup.classList.add("popup");
+    popup.textContent = msg;
+
+    if (position) {
+        popup.style.top = position + "px"
+    } else {
+        popup.style.top = ((window.innerHeight - popup.clientHeight) / 2 + window.scrollY) + "px";
+    }
+
+    document.body.classList.add("alertShadow");
+
+    setInterval(() => {
+        document.body.classList.remove("alertShadow");
+        popup.remove();
+    }, 1500);
+}

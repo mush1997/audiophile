@@ -153,6 +153,18 @@ body .shadow {
   z-index: 1;
   visibility: hidden;
 }
+body .popup {
+  padding: 20px;
+  min-width: 450px;
+  max-width: 550px;
+  border-radius: 10px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: none;
+}
 body main {
   padding: 0 11%;
   width: 100%;
@@ -182,8 +194,16 @@ body.alertShadow .shadow {
   visibility: visible;
   animation: cartShadow 0.4s forwards;
 }
+body.alertShadow .popup {
+  display: block;
+}
 
 @media screen and (max-width: 1024px) {
+  body .popup {
+    width: 400px;
+    min-width: auto;
+    max-width: auto;
+  }
   body main {
     padding: 0 40px;
   }
@@ -192,6 +212,9 @@ body.alertShadow .shadow {
   }
 }
 @media screen and (max-width: 500px) {
+  body .popup {
+    width: calc(100% - 48px);
+  }
   body main {
     padding: 0 24px;
   }

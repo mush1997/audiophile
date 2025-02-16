@@ -82,7 +82,7 @@ function addToCart() {
     }
 
     quantity.textContent = "1";
-    alert("Added successfully!");
+    createPopupMsg("Added successfully!");
 }
 
 function plusOrMinusQuantity(event) {
