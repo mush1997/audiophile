@@ -58,23 +58,23 @@ function goProductPage(event) {
     window.location.href = `./product.html?product=${productName}`;
 }
 
-function createPopupMsg(msg, time, position) {
+function showPopupMsg(msg) {
     const popup = document.createElement("div");
     document.body.append(popup);
-    popup.id = "popup";
     popup.classList.add("popup");
-    popup.textContent = msg;
 
-    if (position) {
-        popup.style.top = position + "px"
-    } else {
-        popup.style.top = ((window.innerHeight - popup.clientHeight) / 2 + window.scrollY) + "px";
-    }
+    popup.insertAdjacentHTML("afterbegin",
+        `<p>${msg}</p>
+         <div>
+           <button class="mainBtn">Close</button>
+         </div>`
+    );
 
+    popup.style.top = ((window.innerHeight - popup.clientHeight) / 2 + window.scrollY) + "px";
     document.body.classList.add("alertShadow");
 
-    setInterval(() => {
+    popup.querySelector("button").addEventListener("click", () => {
         document.body.classList.remove("alertShadow");
         popup.remove();
-    }, time);
+    }, { once: true });
 }

@@ -81,8 +81,8 @@ function addToCart() {
         window.localStorage.setItem("cartList", JSON.stringify(list));
     }
 
+    showPopupMsg("Added successfully!");
     quantity.textContent = "1";
-    createPopupMsg("Added successfully!", 1500);
 }
 
 function plusOrMinusQuantity(event) {
