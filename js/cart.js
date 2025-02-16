@@ -110,7 +110,7 @@ function editQuantityInCart(event) {
     updateCart();
 
     if (list.length === 0) {
-        createPopupMsg("Your cart will be empty.", 60);
+        createPopupMsg("Your cart will be empty.", 1500, 60);
         setInterval(() => {
             window.location.pathname.includes("checkout.html") ? updateSummary() : "";
         }, 1800);
@@ -130,7 +130,7 @@ function removeAll() {
     itemDetails.textContent = "";
     cartDefaultText.classList.remove("hide");
     cartTotalSum.classList.add("hide");
-    createPopupMsg("Your cart will be empty.", 60);
+    createPopupMsg("Your cart will be empty.", 1500, 60);
 
     window.localStorage.removeItem("cartList");
     // window.location.pathname.includes("checkout.html") ? updateSummary() : "";

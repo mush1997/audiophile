@@ -58,7 +58,7 @@ function goProductPage(event) {
     window.location.href = `./product.html?product=${productName}`;
 }
 
-function createPopupMsg(msg, position) {
+function createPopupMsg(msg, time, position) {
     const popup = document.createElement("div");
     document.body.append(popup);
     popup.id = "popup";
@@ -76,5 +76,5 @@ function createPopupMsg(msg, position) {
     setInterval(() => {
         document.body.classList.remove("alertShadow");
         popup.remove();
-    }, 1500);
+    }, time);
 }

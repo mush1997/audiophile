@@ -82,7 +82,7 @@ function addToCart() {
     }
 
     quantity.textContent = "1";
-    createPopupMsg("Added successfully!");
+    createPopupMsg("Added successfully!", 1500);
 }
 
 function plusOrMinusQuantity(event) {
