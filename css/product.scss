@@ -257,6 +257,12 @@ body {
                         flex-basis: 45%;
                         margin-right: 24px;
                     }
+
+                    ul li {
+                        span:first-child {
+                            width: 32px;
+                        }
+                    }
                 }
             }
         }
@@ -326,8 +332,12 @@ body {
                         margin-right: 0;
                     }
 
-                    ul li{
-                        margin-bottom: 8px;
+                    ul {
+                        flex-basis: 100%;
+
+                        li {
+                            margin-bottom: 8px;
+                        }
                     }
                 }
             }

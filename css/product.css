@@ -1113,6 +1113,9 @@ body main .pics img:last-child {
     flex-basis: 45%;
     margin-right: 24px;
   }
+  body main .details .others ul li span:first-child {
+    width: 32px;
+  }
 }
 @media screen and (max-width: 500px) {
   body main section {
@@ -1161,6 +1164,9 @@ body main .pics img:last-child {
   body main .details .others h2 {
     flex-basis: 100%;
     margin-right: 0;
+  }
+  body main .details .others ul {
+    flex-basis: 100%;
   }
   body main .details .others ul li {
     margin-bottom: 8px;
