@@ -110,8 +110,8 @@ function editQuantityInCart(event) {
     updateCart();
 
     if (list.length === 0) {
-        showPopupMsg("Your cart will be empty.");
         window.location.pathname.includes("checkout.html") ? updateSummary() : "";
+        showPopupMsg("Your cart will be empty.");
     }
 }
 
@@ -127,8 +127,8 @@ function removeAll() {
     itemDetails.textContent = "";
     cartDefaultText.classList.remove("hide");
     cartTotalSum.classList.add("hide");
-    showPopupMsg("Your cart will be empty.");
-
+    
     window.localStorage.removeItem("cartList");
     window.location.pathname.includes("checkout.html") ? updateSummary() : "";
+    showPopupMsg("Your cart will be empty.");
 }
