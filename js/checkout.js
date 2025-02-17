@@ -7,8 +7,7 @@ const thankModal = document.querySelector(".thankModal");
     updateSummary();
     document.querySelector(".goBack").addEventListener("click", () => {
         window.history.back();
-        cart.classList.add("hide");
-        document.body.classList.remove("cartShadow");
+        window.location.reload();
     });
 
     allTextInputs.forEach(input => input.addEventListener("keyup", checkEmpty));
