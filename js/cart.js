@@ -127,7 +127,7 @@ function removeAll() {
     itemDetails.textContent = "";
     cartDefaultText.classList.remove("hide");
     cartTotalSum.classList.add("hide");
-    
+
     window.localStorage.removeItem("cartList");
     window.location.pathname.includes("checkout.html") ? updateSummary() : "";
     showPopupMsg("Your cart will be empty.");

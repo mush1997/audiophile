@@ -19,8 +19,10 @@ function updateSummary() {
     checkoutList.textContent = "";
 
     if (!list || list.length === 0) {
+        let num = document.querySelector("footer").clientHeight + document.querySelector("header").clientHeight;
         document.querySelector(".checkout").style.display = "none";
         document.querySelector(".summary").classList.add("empty");
+        document.querySelector("main").style.minHeight = `calc(100vh - ${num}px)`;
         return;
     }
 
