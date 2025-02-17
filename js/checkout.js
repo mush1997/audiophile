@@ -124,12 +124,19 @@ function selectPayment(event) {
 }
 
 function showThankModal(event) {
+    const inputs = Array.from(allTextInputs);
     event.preventDefault();
 
-    for (let input of Array.from(allTextInputs)) {
+    for (let input of inputs) {
         if ((input.value.length === 0 || input.parentElement.classList.contains("error")) &&
             !input.closest(".fieldSet").classList.contains("hide")) {
             showPopupMsg("Please make sure that you fill in all the blanks in the correct format.");
+
+            let emptyBlanks = inputs.filter(input => input.value.length === 0 && !input.closest(".fieldSet").classList.contains("hide"));
+            emptyBlanks.forEach(blank => {
+                blank.parentElement.querySelector(".warning").classList.add("alert");
+                blank.parentElement.classList.add("error");
+            });
             return;
         }
     }
@@ -171,7 +178,7 @@ function resetForm() {
     document.querySelector("form").reset();
     thankModal.classList.remove("show");
     window.localStorage.removeItem("cartList");
-    
+
     setInterval(() => {
         window.location.href = "./index.html";
         document.body.classList.remove("modalShadow");
