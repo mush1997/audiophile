@@ -6,8 +6,7 @@ const thankModal = document.querySelector(".thankModal");
 (function () {
     updateSummary();
     document.querySelector(".goBack").addEventListener("click", () => {
-        window.history.back();
-        window.location.reload();
+        window.history.go(-1);
     });
 
     allTextInputs.forEach(input => input.addEventListener("keyup", checkEmpty));
