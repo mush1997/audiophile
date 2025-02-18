@@ -72,6 +72,12 @@ body {
     }
 }
 
+@media screen and (min-width:1200px) {
+    body main .product img {
+        max-width: 640px;
+    }
+}
+
 @media screen and (max-width:1024px) {
     body {
         main {

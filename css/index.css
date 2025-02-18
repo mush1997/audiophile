@@ -540,6 +540,11 @@ body header nav .cartBtn:hover {
   display: none;
 }
 
+@media screen and (min-width: 1700px) {
+  .menuComponent {
+    gap: 60px;
+  }
+}
 @media screen and (max-width: 1200px) {
   .menuComponent > div div {
     padding-bottom: 20px;
@@ -650,6 +655,11 @@ body aside div p:nth-child(2) {
   opacity: 0.5;
 }
 
+@media screen and (min-width: 1200px) {
+  body aside img {
+    max-width: 640px;
+  }
+}
 @media screen and (max-width: 1024px) {
   body aside {
     margin: 120px 0;
@@ -909,6 +919,11 @@ body aside {
   margin: 200px 0;
 }
 
+@media screen and (min-width: 1600px) {
+  body main section {
+    padding: 96px 140px;
+  }
+}
 @media screen and (max-width: 1200px) {
   body main section {
     padding: 70px;

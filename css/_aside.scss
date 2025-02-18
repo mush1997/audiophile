@@ -47,6 +47,12 @@ body {
     }
 }
 
+@media screen and (min-width:1200px) {
+    body aside img {
+        max-width: 640px;
+    }
+}
+
 @media screen and (max-width:1024px) {
     body {
         aside {

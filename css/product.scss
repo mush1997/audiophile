@@ -150,6 +150,24 @@ body {
     }
 }
 
+@media screen and (min-width:1700px) {
+    body main {
+        .overview {
+            &>p img {
+                max-width: 640px;
+            }
+
+            &>div {
+                padding-left: 90px;
+            }
+        }
+
+        .pics {
+            gap: 62px 60px;
+        }
+    }
+}
+
 @media screen and (max-width:1024px) {
     body {
         main {
@@ -199,10 +217,6 @@ body {
                 h2 {
                     flex-basis: 60%;
                 }
-            }
-
-            .pics {
-                gap: 20px 18px;
             }
         }
     }
@@ -264,6 +278,10 @@ body {
                         }
                     }
                 }
+            }
+
+            .pics {
+                gap: 20px 18px;
             }
         }
     }

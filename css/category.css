@@ -540,6 +540,11 @@ body header nav .cartBtn:hover {
   display: none;
 }
 
+@media screen and (min-width: 1700px) {
+  .menuComponent {
+    gap: 60px;
+  }
+}
 @media screen and (max-width: 1200px) {
   .menuComponent > div div {
     padding-bottom: 20px;
@@ -650,6 +655,11 @@ body aside div p:nth-child(2) {
   opacity: 0.5;
 }
 
+@media screen and (min-width: 1200px) {
+  body aside img {
+    max-width: 640px;
+  }
+}
 @media screen and (max-width: 1024px) {
   body aside {
     margin: 120px 0;
@@ -862,6 +872,11 @@ body main .product:nth-child(even) div {
   padding-right: 125px;
 }
 
+@media screen and (min-width: 1200px) {
+  body main .product img {
+    max-width: 640px;
+  }
+}
 @media screen and (max-width: 1024px) {
   body main {
     padding-top: 120px;

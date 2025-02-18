@@ -122,6 +122,12 @@ body {
     }
 }
 
+@media screen and (min-width:1600px) {
+    body main section  {
+        padding: 96px 140px;
+    }
+}
+
 @media screen and (max-width:1200px) {
     body {
         main {
