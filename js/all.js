@@ -6,7 +6,13 @@ const links = document.querySelectorAll(".navLinks li:not(:first-child), .menuCo
     showHideMenuBtn();
     if (history.scrollRestoration) { history.scrollRestoration = "manual"; }
     window.addEventListener("resize", showHideMenuBtn);
-    window.addEventListener("pageshow", (event) => { event.persisted ? window.location.reload() : "" });
+    // window.addEventListener("pageshow", (event) => { event.persisted ? window.location.reload() : "" });
+    window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+            cart.classList.add("hide");
+            document.body.classList.remove("cartShadow");
+        }
+    });
     menuBtn.addEventListener("click", showHideMenu);
     links.forEach(link => link.addEventListener("click", goCategoryPage));
 })();
