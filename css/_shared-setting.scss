@@ -53,11 +53,6 @@
         letter-spacing: 2px;
         text-transform: uppercase;
 
-        &:hover {
-            cursor: pointer;
-            color: $primary;
-        }
-
         a {
             font-size: 13px;
             font-weight: bold;
@@ -65,10 +60,6 @@
             color: $white;
             letter-spacing: 2px;
             text-transform: uppercase;
-
-            &:hover {
-                color: $primary;
-            }
         }
     }
 
@@ -89,10 +80,6 @@
 a {
     display: block;
     text-decoration: none;
-
-    &:hover {
-        cursor: pointer;
-    }
 }
 
 button {
@@ -104,28 +91,16 @@ button {
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
-
-    &:hover {
-        cursor: pointer;
-    }
 }
 
 .mainBtn {
     background-color: $primary;
     color: $white;
-
-    &:hover {
-        background-color: $hovering;
-    }
 }
 
 .blackBtn {
     background-color: $black;
     color: $white;
-
-    &:hover {
-        background-color: $dark_gray;
-    }
 }
 
 .hollowBtn {
@@ -133,11 +108,6 @@ button {
     border: 1px solid $black;
     background-color: transparent;
     color: $black;
-
-    &:hover {
-        background-color: $black;
-        color: $white;
-    }
 }
 
 //layout
@@ -187,13 +157,6 @@ body {
         .goBack {
             margin: 80px 0 56px 0;
             opacity: 0.5;
-
-            &:hover {
-                cursor: pointer;
-                color: $primary;
-                opacity: 1;
-                text-decoration: underline;
-            }
         }
     }
 }
@@ -221,6 +184,45 @@ body.alertShadow {
 
     .popup {
         display: block;
+    }
+}
+
+@media screen and (hover:hover) {
+    .navLinks {
+        li {
+            &:hover {
+                cursor: pointer;
+                color: $primary;
+            }
+
+            a:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    .mainBtn:hover {
+        background-color: $hovering;
+    }
+
+    .blackBtn:hover {
+        background-color: $dark_gray;
+    }
+
+    .hollowBtn:hover {
+        background-color: $black;
+        color: $white;
+    }
+
+    body main .goBack:hover {
+        cursor: pointer;
+        color: $primary;
+        opacity: 1;
+        text-decoration: underline;
     }
 }
 

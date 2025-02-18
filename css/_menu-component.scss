@@ -24,14 +24,6 @@
             z-index: -1;
         }
 
-        &:hover {
-            cursor: pointer;
-
-            div p:nth-child(2) span {
-                color: $primary;
-            }
-        }
-
         &>img {
             width: 70%;
         }
@@ -81,6 +73,18 @@
 
 .hide {
     display: none;
+}
+
+@media screen and (hover:hover) {
+    .menuComponent {
+        &>div:hover {
+            cursor: pointer;
+
+            div p:nth-child(2) span {
+                color: $primary;
+            }
+        }
+    }
 }
 
 @media screen and (min-width:1700px) {

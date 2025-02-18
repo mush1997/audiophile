@@ -45,11 +45,6 @@ body {
                 img {
                     margin-left: 16px;
                     vertical-align: middle;
-
-                    &:hover {
-                        cursor: pointer;
-                        filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
-                    }
                 }
 
                 img:nth-child(1) {
@@ -71,6 +66,13 @@ body {
                 color: $dark_gray;
             }
         }
+    }
+}
+
+@media screen and (hover:hover) {
+    body footer section .sns img:hover {
+        cursor: pointer;
+        filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
     }
 }
 

@@ -75,12 +75,6 @@ body {
                         #plus {
                             font-size: 18px;
                             opacity: 0.25;
-
-                            &:hover {
-                                cursor: pointer;
-                                color: $primary;
-                                opacity: 1;
-                            }
                         }
                     }
 
@@ -145,6 +139,20 @@ body {
 
             img:last-child {
                 grid-area: 1/2/3/3;
+            }
+        }
+    }
+}
+
+@media screen and (hover:hover) {
+    body main .overview {
+        &>div .addToCart p {
+
+            #minus:hover,
+            #plus:hover {
+                cursor: pointer;
+                color: $primary;
+                opacity: 1;
             }
         }
     }

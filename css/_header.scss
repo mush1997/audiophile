@@ -23,14 +23,14 @@ body {
                 left: 50%;
                 transform: translateX(-50%);
             }
-
-            .cartBtn {
-                &:hover {
-                    cursor: pointer;
-                    filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
-                }
-            }
         }
+    }
+}
+
+@media screen and (hover:hover) {
+    body header nav .cartBtn:hover {
+        cursor: pointer;
+        filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
     }
 }
 
@@ -60,10 +60,6 @@ body {
                 .menuBtn {
                     position: absolute;
                     left: 0;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
                 }
 
                 .logo {
@@ -75,6 +71,12 @@ body {
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width:1024px) and (hover:hover) {
+    body header nav .menuBtn:hover {
+        cursor: pointer;
     }
 }
 

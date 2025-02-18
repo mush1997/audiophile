@@ -124,10 +124,6 @@ body.modalShadow {
                     display: inline-block;
                     animation: dropdownOpen 0.8s forwards;
 
-                    &:hover {
-                        cursor: pointer;
-                    }
-
                     span {
                         font-size: 13px;
                         font-weight: bold;
@@ -177,6 +173,12 @@ body.modalShadow {
 .thankModal.show {
     display: block;
     animation: showing 0.8s forwards;
+}
+
+@media screen and (hover:hover) {
+    .thankModal .summaryBrick .leftPart .dropdown p:hover {
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width:1024px) {

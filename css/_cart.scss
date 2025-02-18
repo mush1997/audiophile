@@ -25,23 +25,16 @@
             letter-spacing: 1.3px;
         }
 
-        p:nth-child(1) {            
+        p:nth-child(1) {
             text-transform: uppercase;
 
-            span {                
+            span {
                 color: $black;
             }
         }
 
-        p:nth-child(2) {            
+        p:nth-child(2) {
             opacity: 0.5;
-
-            &:hover {
-                cursor: pointer;
-                color: $primary;
-                text-decoration: underline;
-                opacity: 1;
-            }
         }
     }
 
@@ -105,12 +98,6 @@
                 .plus {
                     font-size: 18px;
                     opacity: 0.25;
-
-                    &:hover {
-                        cursor: pointer;
-                        color: $primary;
-                        opacity: 1;
-                    }
                 }
             }
         }
@@ -142,6 +129,27 @@
         button {
             margin-top: 24px;
             width: 100%;
+        }
+    }
+}
+
+@media screen and (hover:hover) {
+    #cart {
+        .cartTitle p:nth-child(2):hover {
+            cursor: pointer;
+            color: $primary;
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        .itemDetails .single .cartQuantity {
+
+            .minus:hover,
+            .plus:hover {
+                cursor: pointer;
+                color: $primary;
+                opacity: 1;
+            }
         }
     }
 }

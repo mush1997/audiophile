@@ -61,10 +61,6 @@ h4 {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.navLinks li:hover {
-  cursor: pointer;
-  color: #D87D4A;
-}
 .navLinks li a {
   font-size: 13px;
   font-weight: bold;
@@ -72,9 +68,6 @@ h4 {
   color: white;
   letter-spacing: 2px;
   text-transform: uppercase;
-}
-.navLinks li a:hover {
-  color: #D87D4A;
 }
 .navLinks li:nth-child(1) {
   margin-left: 0;
@@ -93,9 +86,6 @@ a {
   display: block;
   text-decoration: none;
 }
-a:hover {
-  cursor: pointer;
-}
 
 button {
   margin-top: 40px;
@@ -107,24 +97,15 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-button:hover {
-  cursor: pointer;
-}
 
 .mainBtn {
   background-color: #D87D4A;
   color: white;
 }
-.mainBtn:hover {
-  background-color: #FBAF85;
-}
 
 .blackBtn {
   background-color: black;
   color: white;
-}
-.blackBtn:hover {
-  background-color: #4C4C4C;
 }
 
 .hollowBtn {
@@ -132,10 +113,6 @@ button:hover {
   border: 1px solid black;
   background-color: transparent;
   color: black;
-}
-.hollowBtn:hover {
-  background-color: black;
-  color: white;
 }
 
 body {
@@ -181,12 +158,6 @@ body main .goBack {
   margin: 80px 0 56px 0;
   opacity: 0.5;
 }
-body main .goBack:hover {
-  cursor: pointer;
-  color: #D87D4A;
-  opacity: 1;
-  text-decoration: underline;
-}
 
 body.menuShadow .shadow {
   visibility: visible;
@@ -207,6 +178,34 @@ body.alertShadow .popup {
   display: block;
 }
 
+@media screen and (hover: hover) {
+  .navLinks li:hover {
+    cursor: pointer;
+    color: #D87D4A;
+  }
+  .navLinks li a:hover {
+    color: #D87D4A;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  .mainBtn:hover {
+    background-color: #FBAF85;
+  }
+  .blackBtn:hover {
+    background-color: #4C4C4C;
+  }
+  .hollowBtn:hover {
+    background-color: black;
+    color: white;
+  }
+  body main .goBack:hover {
+    cursor: pointer;
+    color: #D87D4A;
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
 @media screen and (max-width: 1024px) {
   body .popup {
     width: 400px;
@@ -252,11 +251,13 @@ body header nav .navLinks {
   left: 50%;
   transform: translateX(-50%);
 }
-body header nav .cartBtn:hover {
-  cursor: pointer;
-  filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
-}
 
+@media screen and (hover: hover) {
+  body header nav .cartBtn:hover {
+    cursor: pointer;
+    filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
+  }
+}
 @media screen and (max-width: 1200px) {
   body header nav .navLinks {
     position: static;
@@ -274,14 +275,16 @@ body header nav .cartBtn:hover {
     position: absolute;
     left: 0;
   }
-  body header nav .menuBtn:hover {
-    cursor: pointer;
-  }
   body header nav .logo {
     margin-left: 42px;
   }
   body header nav .navLinks {
     display: none;
+  }
+}
+@media screen and (max-width: 1024px) and (hover: hover) {
+  body header nav .menuBtn:hover {
+    cursor: pointer;
   }
 }
 @media screen and (max-width: 500px) {
@@ -329,12 +332,6 @@ body header nav .cartBtn:hover {
 }
 #cart .cartTitle p:nth-child(2) {
   opacity: 0.5;
-}
-#cart .cartTitle p:nth-child(2):hover {
-  cursor: pointer;
-  color: #D87D4A;
-  text-decoration: underline;
-  opacity: 1;
 }
 #cart .defaultText {
   text-align: center;
@@ -387,12 +384,6 @@ body header nav .cartBtn:hover {
   font-size: 18px;
   opacity: 0.25;
 }
-#cart .itemDetails .single .cartQuantity .minus:hover,
-#cart .itemDetails .single .cartQuantity .plus:hover {
-  cursor: pointer;
-  color: #D87D4A;
-  opacity: 1;
-}
 #cart .itemDetails .single:first-child {
   margin-top: 0;
 }
@@ -417,6 +408,20 @@ body header nav .cartBtn:hover {
   width: 100%;
 }
 
+@media screen and (hover: hover) {
+  #cart .cartTitle p:nth-child(2):hover {
+    cursor: pointer;
+    color: #D87D4A;
+    text-decoration: underline;
+    opacity: 1;
+  }
+  #cart .itemDetails .single .cartQuantity .minus:hover,
+  #cart .itemDetails .single .cartQuantity .plus:hover {
+    cursor: pointer;
+    color: #D87D4A;
+    opacity: 1;
+  }
+}
 @media screen and (max-width: 1024px) {
   #cart {
     width: 75%;
@@ -493,12 +498,6 @@ body header nav .cartBtn:hover {
   bottom: 0;
   z-index: -1;
 }
-.menuComponent > div:hover {
-  cursor: pointer;
-}
-.menuComponent > div:hover div p:nth-child(2) span {
-  color: #D87D4A;
-}
 .menuComponent > div > img {
   width: 70%;
 }
@@ -540,6 +539,14 @@ body header nav .cartBtn:hover {
   display: none;
 }
 
+@media screen and (hover: hover) {
+  .menuComponent > div:hover {
+    cursor: pointer;
+  }
+  .menuComponent > div:hover div p:nth-child(2) span {
+    color: #D87D4A;
+  }
+}
 @media screen and (min-width: 1700px) {
   .menuComponent {
     gap: 60px;
@@ -862,10 +869,6 @@ body footer section .sns img {
   margin-left: 16px;
   vertical-align: middle;
 }
-body footer section .sns img:hover {
-  cursor: pointer;
-  filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
-}
 body footer section .sns img:nth-child(1) {
   margin-left: 0;
 }
@@ -882,6 +885,12 @@ body footer .attribution a {
   color: #4C4C4C;
 }
 
+@media screen and (hover: hover) {
+  body footer section .sns img:hover {
+    cursor: pointer;
+    filter: invert(46%) sepia(96%) saturate(312%) hue-rotate(338deg) brightness(99%) contrast(92%);
+  }
+}
 @media screen and (max-width: 1024px) {
   body footer {
     padding: 60px 40px 0 40px;
@@ -999,12 +1008,6 @@ body main .overview > div .addToCart p #plus {
   font-size: 18px;
   opacity: 0.25;
 }
-body main .overview > div .addToCart p #minus:hover,
-body main .overview > div .addToCart p #plus:hover {
-  cursor: pointer;
-  color: #D87D4A;
-  opacity: 1;
-}
 body main .overview > div .addToCart button {
   margin-top: 0;
 }
@@ -1055,6 +1058,14 @@ body main .pics img:last-child {
   grid-area: 1/2/3/3;
 }
 
+@media screen and (hover: hover) {
+  body main .overview > div .addToCart p #minus:hover,
+  body main .overview > div .addToCart p #plus:hover {
+    cursor: pointer;
+    color: #D87D4A;
+    opacity: 1;
+  }
+}
 @media screen and (min-width: 1700px) {
   body main .overview > p img {
     max-width: 640px;
