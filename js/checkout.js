@@ -180,6 +180,7 @@ function resetForm() {
     document.querySelector("form").reset();
     thankModal.classList.remove("show");
     window.localStorage.removeItem("cartList");
+    updateSummary();
 
     setInterval(() => {
         window.location.href = "./index.html";
