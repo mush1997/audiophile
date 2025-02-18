@@ -6,6 +6,7 @@ const links = document.querySelectorAll(".navLinks li:not(:first-child), .menuCo
     showHideMenuBtn();
     if (history.scrollRestoration) { history.scrollRestoration = "manual"; }
     window.addEventListener("resize", showHideMenuBtn);
+    window.addEventListener("pageshow", (event) => { event.persisted ? window.location.reload() : "" });
     menuBtn.addEventListener("click", showHideMenu);
     links.forEach(link => link.addEventListener("click", goCategoryPage));
 })();

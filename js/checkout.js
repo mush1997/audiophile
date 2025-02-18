@@ -5,10 +5,7 @@ const thankModal = document.querySelector(".thankModal");
 
 (function () {
     updateSummary();
-    document.querySelector(".goBack").addEventListener("click", () => {
-        window.history.go(-1);
-    });
-
+    document.querySelector(".goBack").addEventListener("click", () => { window.history.back() });
     allTextInputs.forEach(input => input.addEventListener("keyup", checkEmpty));
     allTextInputs.forEach(input => input.addEventListener("keyup", checkFormat));
     radioLabels.forEach(label => label.addEventListener("click", selectPayment));
