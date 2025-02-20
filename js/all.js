@@ -53,8 +53,14 @@ function setPicSize() {
 
 function goCategoryPage(event) {
     let title;
-    event.currentTarget.nodeName === "LI" ? title = event.currentTarget : title = event.currentTarget.querySelector("p");
-    event.currentTarget.querySelector("a").href = `./category.html?category=${title.textContent.toLowerCase()}`;
+
+    if (event.currentTarget.nodeName === "LI") {
+        title = event.currentTarget;
+        event.currentTarget.querySelector("a").href = `./category.html?category=${title.textContent.toLowerCase()}`;
+    } else {
+        title = event.currentTarget.querySelector("p");
+        window.location.href = `./category.html?category=${title.textContent.toLowerCase()}`;
+    }
 }
 
 function goProductPage(event) {
