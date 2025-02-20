@@ -6,6 +6,7 @@ const thankModal = document.querySelector(".thankModal");
 (function () {
     updateSummary();
     document.querySelector(".goBack").addEventListener("click", () => { window.history.back() });
+    document.querySelector("form").addEventListener("keydown", prohibitSubmitByEnter);
     allTextInputs.forEach(input => input.addEventListener("keyup", checkEmpty));
     allTextInputs.forEach(input => input.addEventListener("keyup", checkFormat));
     radioLabels.forEach(label => label.addEventListener("click", selectPayment));
@@ -44,6 +45,10 @@ function updateSummary() {
     document.querySelector(".finalTotal").textContent = `$ ${sum.toLocaleString()}`;
     document.querySelector(".vat").textContent = `$ ${Math.round(sum * 0.2).toLocaleString()}`;
     document.querySelector(".grandTotal").textContent = `$ ${Math.round(sum * 1.2 + 50).toLocaleString()}`;
+}
+
+function prohibitSubmitByEnter(event) {
+    event.key === "Enter" ? event.preventDefault() : "";
 }
 
 function checkEmpty(event) {
@@ -180,6 +185,8 @@ function showHideDropdown(event) {
 
 function resetForm() {
     document.querySelector("form").reset();
+    document.querySelector("form").removeEventListener("keydown", prohibitSubmitByEnter);
+
     thankModal.classList.remove("show");
     window.localStorage.removeItem("cartList");
     document.removeEventListener("keydown", prohibitKey);

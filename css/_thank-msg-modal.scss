@@ -24,7 +24,7 @@ body.modalShadow {
 .thankModal {
     padding: 48px;
     width: 40%;
-    min-width: 610px;
+    min-width: 620px;
     max-width: 720px;
     border-radius: 10px;
     background-color: $white;
@@ -183,7 +183,7 @@ body.modalShadow {
 
 @media screen and (max-width:1024px) {
     .thankModal {
-        padding: 32px;
+        padding: 28px;
         min-width: 580px;
     }
 }
