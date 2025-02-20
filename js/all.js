@@ -1,6 +1,7 @@
 const menuBtn = document.querySelector(".menuBtn");
 const menu = document.querySelector(".menu");
 const links = document.querySelectorAll(".navLinks li:not(:first-child), .menuComponent div");
+let popup;
 
 (function () {
     showHideMenuBtn();
@@ -24,10 +25,12 @@ function showHideMenuBtn() {
 function showHideMenu() {
     menu.classList.remove("hide");
     document.body.classList.add("menuShadow");
+    document.addEventListener("keydown", prohibitKey);
 
     document.querySelector(".shadow").addEventListener("click", () => {
         menu.classList.add("hide");
         document.body.classList.remove("menuShadow");
+        document.removeEventListener("keydown", prohibitKey);
     }, { once: true });
 }
 
@@ -51,7 +54,7 @@ function setPicSize() {
 function goCategoryPage(event) {
     let title;
     event.currentTarget.nodeName === "LI" ? title = event.currentTarget : title = event.currentTarget.querySelector("p");
-    window.location.href = `./category.html?category=${title.textContent.toLowerCase()}`;
+    event.currentTarget.querySelector("a").href = `./category.html?category=${title.textContent.toLowerCase()}`;
 }
 
 function goProductPage(event) {
@@ -60,7 +63,7 @@ function goProductPage(event) {
 }
 
 function showPopupMsg(msg) {
-    const popup = document.createElement("div");
+    popup = document.createElement("div");
     document.body.append(popup);
     popup.classList.add("popup");
 
@@ -73,9 +76,24 @@ function showPopupMsg(msg) {
 
     popup.style.top = ((window.innerHeight - popup.clientHeight) / 2 + window.scrollY) + "px";
     document.body.classList.add("alertShadow");
+    document.addEventListener("keydown", prohibitKey);
+    popup.querySelector("button").focus();
+    popup.querySelector("button").addEventListener("click", closePopupMsg, { once: true });
+}
 
-    popup.querySelector("button").addEventListener("click", () => {
-        document.body.classList.remove("alertShadow");
-        popup.remove();
-    }, { once: true });
+function closePopupMsg() {
+    document.body.classList.remove("alertShadow");
+    document.removeEventListener("keydown", prohibitKey);
+    popup.remove();
+
+    if (document.body.classList.contains("cartShadow")) {
+        document.addEventListener("keydown", prohibitKey);
+    }
+}
+
+function prohibitKey(event) {
+    if (event.key === "Tab" ||
+        (event.key === "Enter" && document.body.classList.contains("modalShadow"))) {
+        event.preventDefault();
+    }
 }

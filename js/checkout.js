@@ -139,6 +139,7 @@ function showThankModal(event) {
                 blank.parentElement.querySelector(".warning").classList.add("alert");
                 blank.parentElement.classList.add("error");
             });
+
             return;
         }
     }
@@ -147,6 +148,7 @@ function showThankModal(event) {
     document.body.classList.add("modalShadow");
     thankModal.classList.add("show");
     thankModal.style.top = (window.scrollY + 40) + "px";
+    document.addEventListener("keydown", prohibitKey);
 }
 
 function updateThankModal() {
@@ -180,6 +182,7 @@ function resetForm() {
     document.querySelector("form").reset();
     thankModal.classList.remove("show");
     window.localStorage.removeItem("cartList");
+    document.removeEventListener("keydown", prohibitKey);
 
     setInterval(() => {
         window.location.href = "./index.html";

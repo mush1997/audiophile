@@ -66,6 +66,7 @@ h4 {
   font-weight: bold;
   line-height: 25px;
   color: white;
+  color: red;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -150,6 +151,9 @@ body .popup div button {
   width: 72px;
   height: 32px;
 }
+body .popup div button:focus {
+  outline: none;
+}
 body main {
   padding: 0 11%;
   width: 100%;
@@ -157,6 +161,7 @@ body main {
 body main .goBack {
   margin: 80px 0 56px 0;
   opacity: 0.5;
+  display: inline-block;
 }
 
 body.menuShadow .shadow {
