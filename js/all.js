@@ -98,8 +98,5 @@ function closePopupMsg() {
 }
 
 function prohibitKey(event) {
-    if (event.key === "Tab" ||
-        (event.key === "Enter" && document.body.classList.contains("modalShadow"))) {
-        event.preventDefault();
-    }
+    event.key === "Tab" ? event.preventDefault() : "";
 }
