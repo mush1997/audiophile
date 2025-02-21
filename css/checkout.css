@@ -503,6 +503,7 @@ body.modalShadow .shadow {
   max-width: 720px;
   max-height: calc(100vh - 80px);
   overflow-y: auto;
+  overscroll-behavior: none;
   border-radius: 10px;
   background-color: white;
   position: absolute;
