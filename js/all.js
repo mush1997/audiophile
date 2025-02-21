@@ -25,12 +25,12 @@ function showHideMenuBtn() {
 function showHideMenu() {
     menu.classList.remove("hide");
     document.body.classList.add("menuShadow");
-    document.addEventListener("keydown", prohibitKey);
+    document.addEventListener("keydown", prohibitTab);
 
     document.querySelector(".shadow").addEventListener("click", () => {
         menu.classList.add("hide");
         document.body.classList.remove("menuShadow");
-        document.removeEventListener("keydown", prohibitKey);
+        document.removeEventListener("keydown", prohibitTab);
     }, { once: true });
 }
 
@@ -82,24 +82,21 @@ function showPopupMsg(msg) {
 
     popup.style.top = ((window.innerHeight - popup.clientHeight) / 2 + window.scrollY) + "px";
     document.body.classList.add("alertShadow");
-    document.addEventListener("keydown", prohibitKey);
+    document.addEventListener("keydown", prohibitTab);
     popup.querySelector("button").focus();
     popup.querySelector("button").addEventListener("click", closePopupMsg, { once: true });
 }
 
 function closePopupMsg() {
     document.body.classList.remove("alertShadow");
-    document.removeEventListener("keydown", prohibitKey);
+    document.removeEventListener("keydown", prohibitTab);
     popup.remove();
 
     if (document.body.classList.contains("cartShadow")) {
-        document.addEventListener("keydown", prohibitKey);
+        document.addEventListener("keydown", prohibitTab);
     }
 }
 
-function prohibitKey(event) {
-    if (event.key === "Tab" ||
-        (event.key === "Enter" && document.body.classList.contains("modalShadow"))) {
-        event.preventDefault();
-    }
+function prohibitTab(event) {
+    event.key === "Tab" ? event.preventDefault() : "";
 }

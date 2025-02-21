@@ -153,7 +153,7 @@ function showThankModal(event) {
     document.body.classList.add("modalShadow");
     thankModal.classList.add("show");
     thankModal.style.top = (window.scrollY + 40) + "px";
-    document.addEventListener("keydown", prohibitKey);
+    document.addEventListener("keydown", prohibitTab);
 }
 
 function updateThankModal() {
@@ -189,7 +189,7 @@ function resetForm() {
 
     thankModal.classList.remove("show");
     window.localStorage.removeItem("cartList");
-    document.removeEventListener("keydown", prohibitKey);
+    document.removeEventListener("keydown", prohibitTab);
 
     setInterval(() => {
         window.location.href = "./index.html";

@@ -15,12 +15,12 @@ function showHideCart() {
         document.body.classList.add("cartShadow");
     }
 
-    document.addEventListener("keydown", prohibitKey);
+    document.addEventListener("keydown", prohibitTab);
 
     document.querySelector(".shadow").addEventListener("click", () => {
         cart.classList.add("hide");
         document.body.classList.remove("cartShadow");
-        document.removeEventListener("keydown", prohibitKey);
+        document.removeEventListener("keydown", prohibitTab);
     }, { once: true });
 }
 
