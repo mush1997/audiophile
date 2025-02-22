@@ -152,7 +152,7 @@ function showThankModal(event) {
     updateThankModal();
     document.body.classList.add("modalShadow");
     thankModal.classList.add("show");
-    thankModal.style.top = (window.scrollY + 40) + "px";
+    thankModal.style.top = ((window.innerHeight - thankModal.clientHeight) / 2 + window.scrollY) + "px";
     document.addEventListener("keydown", prohibitTab);
 }
 
