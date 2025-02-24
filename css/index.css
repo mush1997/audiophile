@@ -57,7 +57,7 @@ h4 {
   font-size: 13px;
   font-weight: bold;
   line-height: 25px;
-  color: white;
+  color: red;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -132,15 +132,16 @@ body .shadow {
 }
 body .popup {
   padding: 20px;
+  width: 40%;
   min-width: 450px;
   max-width: 550px;
   border-radius: 10px;
   background-color: white;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 20;
-  display: none;
+  visibility: hidden;
 }
 body .popup div {
   text-align: right;
@@ -175,11 +176,12 @@ body.cartShadow .shadow {
 
 body.alertShadow .shadow {
   visibility: visible;
-  animation: alertShadow 0.6s forwards;
+  animation: alertShadow 0.4s forwards;
   z-index: 15;
 }
 body.alertShadow .popup {
-  display: block;
+  visibility: visible;
+  animation: showing 0.4s forwards;
 }
 
 @media screen and (hover: hover) {
@@ -212,9 +214,7 @@ body.alertShadow .popup {
 }
 @media screen and (max-width: 1024px) {
   body .popup {
-    width: 400px;
-    min-width: auto;
-    max-width: auto;
+    min-width: 400px;
   }
   body main {
     padding: 0 40px;
@@ -226,6 +226,7 @@ body.alertShadow .popup {
 @media screen and (max-width: 500px) {
   body .popup {
     width: calc(100% - 48px);
+    min-width: auto;
   }
   body main {
     padding: 0 24px;
