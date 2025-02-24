@@ -16,7 +16,8 @@ function renderProduct(allProducts, picSize) {
     main.textContent = "";
 
     if (allProducts.length === 0) {
-        categoryTitle.textContent = "";
+        categoryTitle.parentElement.style.display = "none";
+        main.nextElementSibling.style.marginTop = "0";
         return;
     }
 

@@ -17,7 +17,8 @@ const quantity = document.getElementById("quantity");
 
 function renderProductDetail(productDetail, picSize) {
     if (!productDetail) {
-        document.querySelector("main").textContent = "";
+        document.querySelectorAll(".overview, .details, .pics, .recommended").forEach(section => section.style.display = "none");
+        document.querySelector("aside").previousElementSibling.style.marginTop = "0";
         return;
     }
 

@@ -854,6 +854,7 @@ body.modalShadow .shadow {
 body footer {
   padding: 75px 11% 0 11%;
   width: 100%;
+  min-height: 365px;
   background-color: #101010;
   position: relative;
 }
