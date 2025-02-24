@@ -54,18 +54,12 @@ h4 {
   margin-left: 34px;
   display: inline-block;
   list-style: none;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 25px;
-  color: red;
-  letter-spacing: 2px;
-  text-transform: uppercase;
 }
 .navLinks li a {
   font-size: 13px;
   font-weight: bold;
   line-height: 25px;
-  color: white;
+  color: red;
   letter-spacing: 2px;
   text-transform: uppercase;
 }

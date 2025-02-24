@@ -46,18 +46,11 @@
         display: inline-block;
         list-style: none;
 
-        font-size: 13px;
-        font-weight: bold;
-        line-height: 25px;
-        color: red;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-
         a {
             font-size: 13px;
             font-weight: bold;
             line-height: 25px;
-            color: $white;            
+            color: red;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -235,7 +228,7 @@ body.alertShadow {
 
 @media screen and (max-width:1024px) {
     body {
-        .popup {            
+        .popup {
             min-width: 400px;
         }
 
