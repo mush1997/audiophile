@@ -59,7 +59,7 @@ h4 {
   font-size: 13px;
   font-weight: bold;
   line-height: 25px;
-  color: red;
+  color: white;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -843,7 +843,7 @@ body header .heroPic {
   min-width: 400px;
 }
 body header .heroPic .specialTitle {
-  color: white;
+  color: red;
   opacity: 0.5;
 }
 body header .heroPic h1 {
