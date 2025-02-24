@@ -843,7 +843,7 @@ body header .heroPic {
   min-width: 400px;
 }
 body header .heroPic .specialTitle {
-  color: red;
+  color: white;
   opacity: 0.5;
 }
 body header .heroPic h1 {
