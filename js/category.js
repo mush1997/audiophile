@@ -1,18 +1,18 @@
+const main = document.querySelector("main");
+const categoryTitle = document.querySelector(".categoryTitle h1");
 let productData;
 let allProducts;
 let currentCategory = window.location.search.slice(10);
 let picSize;
-const main = document.querySelector("main");
-const categoryTitle = document.querySelector(".categoryTitle h1");
 
 (async function () {
     await fetch("data.json").then(response => response.json()).then(data => productData = data);
-    allProducts = productData.filter((data) => data.category === currentCategory).reverse();
+    allProducts = productData.filter(data => data.category === currentCategory).reverse();
     setPicSize();
     window.addEventListener("resize", setPicSize);
 })();
 
-function renderProduct(allProducts, picSize) {
+function renderProduct() {
     main.textContent = "";
 
     if (allProducts.length === 0) {

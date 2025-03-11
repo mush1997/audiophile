@@ -1,21 +1,20 @@
+const quantity = document.getElementById("quantity");
 let productData;
 let productDetail;
 let currentProduct = window.location.search.slice(9).replaceAll("_", "-");
 let picSize;
-const quantity = document.getElementById("quantity");
 
 (async function () {
     await fetch("data.json").then(response => response.json()).then(data => productData = data);
-    productDetail = productData.find((data) => data.slug === currentProduct);
+    productDetail = productData.find(data => data.slug === currentProduct);
     setPicSize();
     window.addEventListener("resize", setPicSize);
     document.querySelector(".goBack").addEventListener("click", () => window.history.back());
-    document.querySelector(".addToCart button").addEventListener("click", addToCart);
     document.getElementById("plus").addEventListener("click", plusOrMinusQuantity);
     document.getElementById("minus").addEventListener("click", plusOrMinusQuantity);
 })();
 
-function renderProductDetail(productDetail, picSize) {
+function renderProductDetail() {
     if (!productDetail) {
         document.querySelectorAll(".overview, .details, .pics, .recommended").forEach(section => section.style.display = "none");
         document.querySelector("aside").previousElementSibling.style.marginTop = "0";
@@ -28,7 +27,9 @@ function renderProductDetail(productDetail, picSize) {
     document.querySelector(".overview h1").textContent = `${productDetail.name}`;
     document.querySelector(".description").textContent = `${productDetail.description}`;
     document.querySelector(".price").textContent = `$ ${productDetail.price.toLocaleString()}`;
+
     productDetail.new ? "" : document.querySelector(".specialTitle").style.display = "none";
+    document.querySelector(".addToCart button").addEventListener("click", addToCart);
 
     renderFeaturesAndOthers(productDetail.features, productDetail.includes);
     renderProductPics(productDetail.gallery);
@@ -45,11 +46,11 @@ function renderFeaturesAndOthers(featuresData, othersData) {
     }
 }
 
-function renderProductPics(product) {
+function renderProductPics(allPics) {
     let pics = document.querySelectorAll(".pics img");
-    pics[0].src = `${product.first[picSize]}`;
-    pics[1].src = `${product.second[picSize]}`;
-    pics[2].src = `${product.third[picSize]}`;
+    pics[0].src = `${allPics.first[picSize]}`;
+    pics[1].src = `${allPics.second[picSize]}`;
+    pics[2].src = `${allPics.third[picSize]}`;
 }
 
 function renderRecommendation(products) {
@@ -65,6 +66,14 @@ function renderRecommendation(products) {
     }
 
     document.querySelectorAll(".container button").forEach(btn => btn.addEventListener("click", goProductPage));
+}
+
+function plusOrMinusQuantity(event) {
+    if (event.target.id === "plus") {
+        quantity.textContent = Number(quantity.textContent) + 1;
+    } else if (quantity.textContent !== "1") {
+        quantity.textContent = Number(quantity.textContent) - 1;
+    }
 }
 
 function addToCart() {
@@ -84,12 +93,4 @@ function addToCart() {
 
     showPopupMsg("Added successfully!");
     quantity.textContent = "1";
-}
-
-function plusOrMinusQuantity(event) {
-    if (event.target.id === "plus") {
-        quantity.textContent = Number(quantity.textContent) + 1;
-    } else if (quantity.textContent !== "1") {
-        quantity.textContent = Number(quantity.textContent) - 1;
-    }
 }

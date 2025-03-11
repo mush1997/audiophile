@@ -1,11 +1,11 @@
-let list;
 const allTextInputs = document.querySelectorAll("input[type='text']");
 const radioLabels = document.querySelectorAll(".options label");
 const thankModal = document.querySelector(".thankModal");
+let list;
 
 (function () {
     updateSummary();
-    document.querySelector(".goBack").addEventListener("click", () => { window.history.back() });
+    document.querySelector(".goBack").addEventListener("click", () => window.history.back());
     document.querySelector("form").addEventListener("keydown", prohibitSubmitByEnter);
     allTextInputs.forEach(input => input.addEventListener("keyup", checkEmpty));
     allTextInputs.forEach(input => input.addEventListener("keyup", checkFormat));
@@ -16,8 +16,7 @@ const thankModal = document.querySelector(".thankModal");
 
 function updateSummary() {
     list = JSON.parse(window.localStorage.getItem("cartList"));
-    const checkoutList = document.querySelector(".checkoutList");
-    checkoutList.textContent = "";
+    document.querySelector(".checkoutList").textContent = "";
 
     if (!list || list.length === 0) {
         let num = document.querySelector("footer").clientHeight + document.querySelector("header").clientHeight;
@@ -28,7 +27,7 @@ function updateSummary() {
     }
 
     for (let item of list) {
-        checkoutList.insertAdjacentHTML("beforeend",
+        document.querySelector(".checkoutList").insertAdjacentHTML("beforeend",
             `<div class="line">
                <div>
                  <img src="./assets/cart/image-${item.slug}.jpg" alt="${item.name}">
@@ -41,7 +40,7 @@ function updateSummary() {
              </div>`);
     }
 
-    let sum = list.map(item => Number(item.price.slice(2).replaceAll(",", "")) * item.amount).reduce((pre, next) => pre + next);
+    let sum = list.map(item => item.price.slice(2).replaceAll(",", "") * item.amount).reduce((pre, next) => pre + next);
     document.querySelector(".finalTotal").textContent = `$ ${sum.toLocaleString()}`;
     document.querySelector(".vat").textContent = `$ ${Math.round(sum * 0.2).toLocaleString()}`;
     document.querySelector(".grandTotal").textContent = `$ ${Math.round(sum * 1.2 + 50).toLocaleString()}`;
@@ -104,17 +103,6 @@ function hideFormatAlert(element) {
     element.parentElement.classList.remove("error");
 }
 
-function formatCardNumber(event) {
-    let plainText = event.target.value.trim().replaceAll(" ", "");
-    let formattedText = "";
-
-    for (let i = 0; i < plainText.length; i++) {
-        if (i > 0 && i % 4 == 0) { formattedText += " "; }
-        formattedText += plainText[i];
-    }
-    event.target.value = formattedText;
-}
-
 function selectPayment(event) {
     const reminderText = document.querySelector(".reminder");
     const creditCardBlanks = document.querySelector(".creditCard");
@@ -130,16 +118,27 @@ function selectPayment(event) {
     }
 }
 
+function formatCardNumber(event) {
+    let plainText = event.target.value.trim().replaceAll(" ", "");
+    let formattedText = "";
+
+    for (let i = 0; i < plainText.length; i++) {
+        if (i > 0 && i % 4 === 0) { formattedText += " "; }
+        formattedText += plainText[i];
+    }
+    event.target.value = formattedText;
+}
+
 function showThankModal(event) {
-    const inputs = Array.from(allTextInputs);
+    let inputs = Array.from(allTextInputs);
     event.preventDefault();
 
     for (let input of inputs) {
         if ((input.value.length === 0 || input.parentElement.classList.contains("error")) &&
             !input.closest(".fieldSet").classList.contains("hide")) {
             showPopupMsg("Please make sure that you fill in all the blanks in the correct format.");
-
             let emptyBlanks = inputs.filter(input => input.value.length === 0 && !input.closest(".fieldSet").classList.contains("hide"));
+
             emptyBlanks.forEach(blank => {
                 blank.parentElement.querySelector(".warning").classList.add("alert");
                 blank.parentElement.classList.add("error");
@@ -157,7 +156,7 @@ function showThankModal(event) {
 }
 
 function updateThankModal() {
-    const content = document.querySelector(".checkoutList").cloneNode(true);
+    let content = document.querySelector(".checkoutList").cloneNode(true);
     document.querySelector(".leftPart").insertAdjacentHTML("afterbegin", content.innerHTML);
     document.querySelector(".dropdown span").textContent = list.length - 1;
     document.querySelector(".grandTotalNum").textContent = document.querySelector(".grandTotal").textContent;
@@ -176,10 +175,10 @@ function showHideDropdown(event) {
 
     if (event.currentTarget.textContent === "View less") {
         event.currentTarget.previousElementSibling.style.display = "inline-block";
-        document.querySelectorAll(".line:not(:first-of-type)").forEach(line => line.classList.remove("show"));
+        document.querySelectorAll(".leftPart .line:not(:first-of-type)").forEach(line => line.classList.remove("show"));
     } else {
         event.currentTarget.nextElementSibling.style.display = "inline-block";
-        document.querySelectorAll(".line:not(:first-of-type)").forEach(line => line.classList.add("show"));
+        document.querySelectorAll(".leftPart .line:not(:first-of-type)").forEach(line => line.classList.add("show"));
     }
 }
 

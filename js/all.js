@@ -47,7 +47,7 @@ function setPicSize() {
 
     if (newPicSize !== picSize) {
         picSize = newPicSize;
-        window.location.pathname.includes("category.html") ? renderProduct(allProducts, picSize) : renderProductDetail(productDetail, picSize);
+        window.location.pathname === "/category.html" ? renderProduct() : renderProductDetail();
     }
 }
 
@@ -77,8 +77,7 @@ function showPopupMsg(msg) {
         `<p>${msg}</p>
          <div>
            <button class="mainBtn">Close</button>
-         </div>`
-    );
+         </div>`);
 
     popup.style.top = ((window.innerHeight - popup.clientHeight) / 2 + window.scrollY) + "px";
     document.body.classList.add("alertShadow");
