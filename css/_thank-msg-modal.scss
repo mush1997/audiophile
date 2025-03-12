@@ -8,6 +8,16 @@
     }
 }
 
+@keyframes dropdownOpen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
 body.modalShadow {
     .shadow {
         visibility: visible;
@@ -275,7 +285,6 @@ body.modalShadow {
 
                 .quantityNum {
                     margin-left: 48px;
-                    width: 100%;
                 }
             }
         }

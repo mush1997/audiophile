@@ -103,21 +103,21 @@ body {
                     opacity: 0.5;
                 }
             }
-        }
 
-        .others ul li {
-            margin-bottom: 4px;
-            list-style: none;
+            .others ul li {
+                margin-bottom: 4px;
+                list-style: none;
 
-            span:first-child {
-                width: 40px;
-                display: inline-block;
-                font-weight: bold;
-                color: $primary;
-            }
+                span:first-child {
+                    width: 40px;
+                    display: inline-block;
+                    font-weight: bold;
+                    color: $primary;
+                }
 
-            span:nth-child(2) {
-                opacity: 0.5;
+                span:nth-child(2) {
+                    opacity: 0.5;
+                }
             }
         }
 
@@ -216,14 +216,14 @@ body {
                     flex-basis: 100%;
                     margin: 0 0 120px 0;
                 }
-            }
 
-            .others {
-                flex-basis: 100%;
-                display: flex;
+                .others {
+                    flex-basis: 100%;
+                    display: flex;
 
-                h2 {
-                    flex-basis: 60%;
+                    h2 {
+                        flex-basis: 60%;
+                    }
                 }
             }
         }

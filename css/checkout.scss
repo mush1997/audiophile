@@ -6,16 +6,6 @@
 @import "menu-component";
 @import "footer";
 
-@keyframes dropdownOpen {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 0.5;
-    }
-}
-
 body {
     main {
         margin-bottom: 130px;
@@ -148,30 +138,27 @@ body {
                             outline: none;
                             position: relative;
 
-                            &::before {
+                            &::before,
+                            &::after {
                                 content: "";
                                 border-radius: 50%;
-                                border: 1px solid $input_border;
-                                margin-right: 8px;
                                 width: 16px;
                                 height: 16px;
                                 position: absolute;
                                 top: 50%;
                                 left: 12px;
+                            }
+
+                            &::before {
+                                border: 1px solid $input_border;
+                                margin-right: 8px;
                                 transform: translateY(-50%);
                             }
 
                             &::after {
                                 display: none;
-                                content: "";
-                                border-radius: 50%;
                                 border: 1px solid $primary;
                                 background-color: $primary;
-                                width: 16px;
-                                height: 16px;
-                                position: absolute;
-                                top: 50%;
-                                left: 12px;
                                 transform: translateY(-50%) scale(0.6);
                             }
 
@@ -334,11 +321,9 @@ body {
 }
 
 @media screen and (max-width:1200px) {
-    body {
-        main form .summary .checkoutList .line {
-            &>div img {
-                width: 60px;
-            }
+    body main form .summary .checkoutList .line {
+        &>div img {
+            width: 60px;
         }
     }
 }
@@ -378,16 +363,8 @@ body {
 }
 
 @media screen and (max-width:680px) {
-    body {
-        main form {
-            .checkout {
-                padding: 24px;
-            }
-
-            .summary {
-                padding: 24px;
-            }
-        }
+    body main form.checkout {
+        padding: 24px;
     }
 }
 

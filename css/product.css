@@ -236,6 +236,7 @@ body header {
 body header nav {
   margin: 0 11%;
   padding: 32px 0;
+  height: 92px;
   border-bottom: 1px solid #4C4C4C;
   display: flex;
   justify-content: space-between;
@@ -1027,17 +1028,17 @@ body main .details .feature {
 body main .details .feature p {
   opacity: 0.5;
 }
-body main .others ul li {
+body main .details .others ul li {
   margin-bottom: 4px;
   list-style: none;
 }
-body main .others ul li span:first-child {
+body main .details .others ul li span:first-child {
   width: 40px;
   display: inline-block;
   font-weight: bold;
   color: #D87D4A;
 }
-body main .others ul li span:nth-child(2) {
+body main .details .others ul li span:nth-child(2) {
   opacity: 0.5;
 }
 body main .pics {
@@ -1107,11 +1108,11 @@ body main .pics img:last-child {
     flex-basis: 100%;
     margin: 0 0 120px 0;
   }
-  body main .others {
+  body main .details .others {
     flex-basis: 100%;
     display: flex;
   }
-  body main .others h2 {
+  body main .details .others h2 {
     flex-basis: 60%;
   }
 }

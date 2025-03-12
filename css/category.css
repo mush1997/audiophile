@@ -236,6 +236,7 @@ body header {
 body header nav {
   margin: 0 11%;
   padding: 32px 0;
+  height: 92px;
   border-bottom: 1px solid #4C4C4C;
   display: flex;
   justify-content: space-between;
