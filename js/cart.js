@@ -87,7 +87,7 @@ function updateCart() {
     cartTotalSum.classList.remove("hide");
     document.querySelectorAll(".plus, .minus").forEach(operator => operator.addEventListener("click", editQuantityInCart));
     calculateTotal(list);
-    window.location.pathname === "/checkout.html" ? updateSummary() : "";
+    window.location.pathname.includes("checkout.html") ? updateSummary() : "";
 }
 
 function editQuantityInCart(event) {
@@ -113,7 +113,7 @@ function editQuantityInCart(event) {
     updateCart();
 
     if (list.length === 0) {
-        window.location.pathname === "/checkout.html" ? updateSummary() : "";
+        window.location.pathname.includes("checkout.html") ? updateSummary() : "";
         showPopupMsg("Your cart will be empty.");
     }
 }
@@ -132,6 +132,6 @@ function removeAll() {
     cartTotalSum.classList.add("hide");
 
     window.localStorage.removeItem("cartList");
-    window.location.pathname === "/checkout.html" ? updateSummary() : "";
+    window.location.pathname.includes("checkout.html") ? updateSummary() : "";
     showPopupMsg("Your cart will be empty.");
 }

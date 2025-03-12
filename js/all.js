@@ -47,7 +47,7 @@ function setPicSize() {
 
     if (newPicSize !== picSize) {
         picSize = newPicSize;
-        window.location.pathname === "/category.html" ? renderProduct() : renderProductDetail();
+        window.location.pathname.includes("category.html") ? renderProduct() : renderProductDetail();
     }
 }
 
