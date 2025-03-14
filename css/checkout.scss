@@ -29,13 +29,14 @@ body {
                     line-height: 36px;
                     letter-spacing: 1.15px;
 
-                    span i {
+                    span {
                         margin-top: 10px;
                         font-size: 13px;
                         line-height: 18px;
                         letter-spacing: 0;
                         word-spacing: 1px;
                         text-transform: none;
+                        font-style: italic;
                         opacity: 0.5;
                         display: block;
                     }

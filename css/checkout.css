@@ -1002,13 +1002,14 @@ body main form .checkout h1 {
   line-height: 36px;
   letter-spacing: 1.15px;
 }
-body main form .checkout h1 span i {
+body main form .checkout h1 span {
   margin-top: 10px;
   font-size: 13px;
   line-height: 18px;
   letter-spacing: 0;
   word-spacing: 1px;
   text-transform: none;
+  font-style: italic;
   opacity: 0.5;
   display: block;
 }
