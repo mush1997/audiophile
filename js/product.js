@@ -1,7 +1,7 @@
 const quantity = document.getElementById("quantity");
 let productData;
 let productDetail;
-let currentProduct = window.location.search.slice(9).replaceAll("_", "-");
+let currentProduct = window.location.search.slice(9);
 let picSize;
 
 (async function () {

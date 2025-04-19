@@ -5,7 +5,6 @@ let popup;
 
 (function () {
     showHideMenuBtn();
-    if (history.scrollRestoration) { history.scrollRestoration = "manual"; }
     window.addEventListener("resize", showHideMenuBtn);
     window.addEventListener("pageshow", (event) => { event.persisted ? window.location.reload() : "" });
     menuBtn.addEventListener("click", showHideMenu);
@@ -64,7 +63,7 @@ function goCategoryPage(event) {
 }
 
 function goProductPage(event) {
-    let productName = event.target.closest("[data-slug]").dataset.slug.replaceAll("-", "_");
+    let productName = event.target.closest("[data-slug]").dataset.slug;
     window.location.href = `./product.html?product=${productName}`;
 }
 
@@ -83,17 +82,13 @@ function showPopupMsg(msg) {
     document.body.classList.add("alertShadow");
     document.addEventListener("keydown", prohibitTab);
     popup.querySelector("button").focus();
-    popup.querySelector("button").addEventListener("click", closePopupMsg, { once: true });
+    popup.querySelector("button").addEventListener("click", closePopupMsg);
 }
 
 function closePopupMsg() {
     document.body.classList.remove("alertShadow");
-    document.removeEventListener("keydown", prohibitTab);
+    document.body.classList.contains("cartShadow") ? "" : document.removeEventListener("keydown", prohibitTab);
     popup.remove();
-
-    if (document.body.classList.contains("cartShadow")) {
-        document.addEventListener("keydown", prohibitTab);
-    }
 }
 
 function prohibitTab(event) {
