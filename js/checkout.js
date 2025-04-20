@@ -19,10 +19,7 @@ function updateSummary() {
     document.querySelector(".checkoutList").textContent = "";
 
     if (!list || list.length === 0) {
-        let num = document.querySelector("footer").clientHeight + document.querySelector("header").clientHeight;
-        document.querySelector(".checkout").style.display = "none";
-        document.querySelector(".summary").classList.add("empty");
-        document.querySelector("main").style.minHeight = `calc(100vh - ${num}px)`;
+        clearSummary();
         return;
     }
 
@@ -44,6 +41,13 @@ function updateSummary() {
     document.querySelector(".finalTotal").textContent = `$ ${sum.toLocaleString()}`;
     document.querySelector(".vat").textContent = `$ ${Math.round(sum * 0.2).toLocaleString()}`;
     document.querySelector(".grandTotal").textContent = `$ ${Math.round(sum * 1.2 + 50).toLocaleString()}`;
+}
+
+function clearSummary() {
+    let num = document.querySelector("footer").clientHeight + document.querySelector("header").clientHeight;
+    document.querySelector(".checkout").style.display = "none";
+    document.querySelector(".summary").classList.add("empty");
+    document.querySelector("main").style.minHeight = `calc(100vh - ${num}px)`;
 }
 
 function prohibitSubmitByEnter(event) {
@@ -106,7 +110,7 @@ function hideFormatAlert(element) {
 function selectPayment(event) {
     const reminderText = document.querySelector(".reminder");
     const creditCardBlanks = document.querySelector(".creditCard");
-    radioLabels.forEach(label => label.classList.remove("selected"));
+    document.querySelector(".selected").classList.remove("selected");
     event.currentTarget.classList.add("selected");
 
     if (event.currentTarget.querySelector("input").value === "credit card") {
@@ -130,16 +134,16 @@ function formatCardNumber(event) {
 }
 
 function showThankModal(event) {
-    let inputs = Array.from(allTextInputs);
     event.preventDefault();
+    let inputs = Array.from(allTextInputs);
 
     for (let input of inputs) {
         if ((input.value.length === 0 || input.parentElement.classList.contains("error")) &&
             !input.closest(".fieldSet").classList.contains("hide")) {
             showPopupMsg("Please make sure that you fill in all the blanks in the correct format.");
-            let emptyBlanks = inputs.filter(input => input.value.length === 0 && !input.closest(".fieldSet").classList.contains("hide"));
+            let blanks = inputs.filter(input => input.value.length === 0 && !input.closest(".fieldSet").classList.contains("hide"));
 
-            emptyBlanks.forEach(blank => {
+            blanks.forEach(blank => {
                 blank.parentElement.querySelector(".warning").classList.add("alert");
                 blank.parentElement.classList.add("error");
             });
@@ -160,7 +164,7 @@ function updateThankModal() {
     document.querySelector(".leftPart").insertAdjacentHTML("afterbegin", content.innerHTML);
     document.querySelector(".dropdown span").textContent = list.length - 1;
     document.querySelector(".grandTotalNum").textContent = document.querySelector(".grandTotal").textContent;
-    document.querySelector(".thankModal button").addEventListener("click", resetForm, { once: true });
+    document.querySelector(".thankModal button").addEventListener("click", resetForm);
 
     if (list.length === 1) {
         document.querySelector(".dropdown").style.display = "none";
@@ -185,13 +189,10 @@ function showHideDropdown(event) {
 function resetForm() {
     document.querySelector("form").reset();
     document.querySelector("form").removeEventListener("keydown", prohibitSubmitByEnter);
-
+    document.body.classList.remove("modalShadow");
     thankModal.classList.remove("show");
-    window.localStorage.removeItem("cartList");
     document.removeEventListener("keydown", prohibitTab);
 
-    setInterval(() => {
-        window.location.href = "./index.html";
-        document.body.classList.remove("modalShadow");
-    }, 600);
+    window.localStorage.removeItem("cartList");
+    window.location.href = "./index.html";
 }
