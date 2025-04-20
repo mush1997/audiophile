@@ -194,5 +194,5 @@ function resetForm() {
     document.removeEventListener("keydown", prohibitTab);
 
     window.localStorage.removeItem("cartList");
-    window.location.href = "./index.html";
+    setTimeout(() => { window.location.href = "./index.html" }, 1200);
 }
