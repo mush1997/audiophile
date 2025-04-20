@@ -189,10 +189,11 @@ function showHideDropdown(event) {
 function resetForm() {
     document.querySelector("form").reset();
     document.querySelector("form").removeEventListener("keydown", prohibitSubmitByEnter);
-    document.body.classList.remove("modalShadow");
+    // document.body.classList.remove("modalShadow");
     thankModal.classList.remove("show");
     document.removeEventListener("keydown", prohibitTab);
 
     window.localStorage.removeItem("cartList");
+    setTimeout(() => { document.body.classList.remove("modalShadow") }, 800);
     setTimeout(() => { window.location.href = "./index.html" }, 1200);
 }
