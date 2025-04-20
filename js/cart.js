@@ -93,28 +93,28 @@ function updateCart() {
 function editQuantityInCart(event) {
     let list = JSON.parse(window.localStorage.getItem("cartList"));
     let itemName = event.target.closest(".single").querySelector("div p").textContent;
-    let quantity;
+    let quantity = document.querySelector(".quantity").textContent;
 
-    if (event.target.classList.contains("plus")) {
-        quantity = event.target.previousElementSibling.textContent;
-        list.find(item => item["name"] === itemName)["amount"] = Number(quantity) + 1;
-    } else {
-        quantity = event.target.nextElementSibling.textContent;
-
-        if (quantity === "1") {
-            let index = list.findIndex(item => item["name"] === itemName);
-            list.splice(index, 1);
-        } else {
-            list.find(item => item["name"] === itemName)["amount"] = Number(quantity) - 1;
-        }
-    }
-
+    event.target.classList.contains("plus") ? plusInCart(list, itemName, quantity) : minusInCart(list, itemName, quantity);
     window.localStorage.setItem("cartList", JSON.stringify(list));
     updateCart();
 
     if (list.length === 0) {
         window.location.pathname.includes("checkout.html") ? updateSummary() : "";
         showPopupMsg("Your cart will be empty.");
+    }
+}
+
+function plusInCart(list, itemName, quantity) {
+    list.find(item => item["name"] === itemName)["amount"] = Number(quantity) + 1;
+}
+
+function minusInCart(list, itemName, quantity) {
+    if (quantity === "1") {
+        let index = list.findIndex(item => item["name"] === itemName);
+        list.splice(index, 1);
+    } else {
+        list.find(item => item["name"] === itemName)["amount"] = Number(quantity) - 1;
     }
 }
 
